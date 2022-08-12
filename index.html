@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style/style.css" rel="stylesheet" />
+    <title>drum</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="keys">
+        <div data-key="65" class="key">
+          <h3>A</h3>
+          <p>bell</p>
+        </div>
+        <div data-key="83" class="key">
+          <h3>S</h3>
+          <p>clap</p>
+        </div>
+        <div data-key="68" class="key">
+          <h3>D</h3>
+          <p>deng</p>
+        </div>
+        <div data-key="70" class="key">
+          <h3>F</h3>
+          <p>drum</p>
+        </div>
+        <div data-key="71" class="key">
+          <h3>G</h3>
+          <p>ding</p>
+        </div>
+        <div data-key="72" class="key">
+          <h3>H</h3>
+          <p>roar</p>
+        </div>
+        <div data-key="74" class="key">
+          <h3>J</h3>
+          <p>kiss</p>
+        </div>
+        <div data-key="75" class="key">
+          <h3>K</h3>
+          <p>heavy</p>
+        </div>
+        <div data-key="76" class="key">
+          <h3>L</h3>
+          <p>sheep</p>
+        </div>
+      </div>
+      <audio data-key="65" src="./sounds/bell.wav"></audio>
+      <audio data-key="83" src="./sounds/clap.wav"></audio>
+      <audio data-key="68" src="./sounds/deng.wav"></audio>
+      <audio data-key="70" src="./sounds/dry-drum.wav"></audio>
+      <audio data-key="71" src="./sounds/ding.wav"></audio>
+      <audio data-key="72" src="./sounds/roar.wav"></audio>
+      <audio data-key="74" src="./sounds/kiss.wav"></audio>
+      <audio data-key="75" src="./sounds/heavy-drum.wav"></audio>
+      <audio data-key="76" src="./sounds/sheep.wav"></audio>
+    </div>
+  </body>
+  <script>
+    window.addEventListener("keydown", function (e) {
+      const audio = document.querySelector(`audio[data-key = "${e.keyCode}"]`);
+      const key = document.querySelector(`.key[data-key = "${e.keyCode}"]`);
+      if (!audio) return;
+      audio.currentTime = 0;
+      audio.play();
+      key.classList.add("playing");
+
+      function removeTransition(e) {
+        if (e.propertyName !== "transform") return;
+        this.classList.remove("playing");
+      }
+
+      const keys = document.querySelectorAll(".key");
+      keys.forEach((key) =>
+        key.addEventListener("transitionend", removeTransition)
+      );
+    });
+  </script>
+</html>
