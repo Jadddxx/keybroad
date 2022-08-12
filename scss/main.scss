@@ -6,7 +6,7 @@ body {
     align-items: center;
     justify-content: center;
 
-    background-image: url("/image/2.jpg");
+    background-image: url("./image/2.jpg");
     background-position: center;
     background-size: cover;
     opacity: 85%;
@@ -19,9 +19,6 @@ body {
     align-items: center;
     justify-content: center;
     gap: 30px;
-    // display: grid;
-    // grid-template-rows: repeat(1);
-    // grid-template-columns: repeat(1fr);
 
     .key {
       display: flex;
