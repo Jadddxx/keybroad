@@ -1,25 +1,27 @@
 body {
-  margin: 0%;
-  padding: 0%;
+  margin: 0;
+  padding: 0;
 }
-body .container {
+
+.container {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("/image/2.jpg");
+  background-image: url("../image/beautifulBeings.jpg");
   background-position: center;
   background-size: cover;
-  opacity: 85%;
+  opacity: 90%;
   width: 100%;
   height: 800px;
 }
-body .keys {
+
+.keys {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 30px;
 }
-body .keys .key {
+.keys .key {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,18 +32,17 @@ body .keys .key {
   transition: all 0.09s;
   border-radius: 5px;
 }
-body .keys .key h3 {
+.keys .key h3 {
   margin: 0%;
   font-size: 50px;
 }
-body .keys .key p {
+.keys .key p {
   text-transform: capitalize;
   color: rgb(122, 170, 129);
   margin: 0%;
   font-size: 15px;
 }
-
-.playing {
+.keys .playing {
   box-shadow: 0 0 10px 3px rgb(231, 213, 79);
   transform: scale(1.1);
 }
