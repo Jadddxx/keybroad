@@ -1,23 +1,27 @@
 body {
   margin: 0;
   padding: 0;
+
+  background-image: url("../image/beautifulBeings.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  width: 100%;
+  height: 100vh;
+  opacity: 85%;
 }
 
 .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background-image: url("../image/beautifulBeings.jpg");
-  background-position: center;
-  background-size: cover;
-  opacity: 90%;
-  width: 100%;
-  height: 800px;
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
 }
 
 .keys {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
   align-items: center;
   justify-content: center;
   gap: 30px;
@@ -26,7 +30,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 0 0 5px;
     flex-direction: column;
 
     padding: 5px 30px;
@@ -37,7 +40,7 @@ body {
 
     h3 {
       margin: 0%;
-      font-size: 50px;
+      font-size: 40px;
     }
     p {
       text-transform: capitalize;
