@@ -59,24 +59,31 @@
     </div>
   </body>
   <script>
-    window.addEventListener("keydown", function (e) {
+    function playSound(e) {
       const audio = document.querySelector(`audio[data-key = "${e.keyCode}"]`);
       const key = document.querySelector(`.key[data-key = "${e.keyCode}"]`);
 
       if (!audio) return;
       audio.currentTime = 0;
       audio.play();
+      // 在有keyCode這些的情況下就把這些class添加playing
       key.classList.add("playing");
+    }
 
-      function removeTransition(e) {
-        if (e.propertyName !== "transform") return;
-        this.classList.remove("playing");
-      }
+    function removeTransition(e) {
+      // 要有transform這個屬性，踢出沒有的。transform是scale那件事
+      if (e.propertyName !== "transform") return;
+      // 如果有的話就移除playing list移除
+      this.classList.remove("playing");
+    }
 
-      const keys = document.querySelectorAll(".key");
-      keys.forEach((key) =>
-        key.addEventListener("transitionend", removeTransition)
-      );
-    });
+    // 讓每個key都要參與把東西移除這件事情
+    const keys = document.querySelectorAll(".key");
+    keys.forEach((key) =>
+      key.addEventListener("transitionend", removeTransition)
+    );
+
+    // 把按下鍵盤跟聲音這件事綁在一起
+    window.addEventListener("keydown", playSound);
   </script>
 </html>

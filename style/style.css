@@ -30,7 +30,8 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 5px 30px;
+  gap: 10px;
+  padding: 8px 15px;
   background-color: rgba(206, 200, 200, 0.3);
   transition: all 0.09s;
   border-radius: 5px;
@@ -38,6 +39,7 @@ body {
 .keys .key h3 {
   margin: 0%;
   font-size: 40px;
+  font-weight: 400;
 }
 .keys .key p {
   text-transform: capitalize;
