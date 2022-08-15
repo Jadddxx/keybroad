@@ -70,6 +70,17 @@
       key.classList.add("playing");
     }
 
+    function playSoundClick(e) {
+      const audio = document.querySelector(`audio`);
+      const mouse = document.querySelector(
+        `.${this.classList}[data-key = '${this.dataset.key}']`
+      );
+      if (!audio) return;
+      audio.currentTime = 0;
+      audio.play();
+      mouse.classList.add("playing");
+    }
+
     function removeTransition(e) {
       // 要有transform這個屬性，踢出沒有的。transform是scale那件事
       if (e.propertyName !== "transform") return;
@@ -79,9 +90,13 @@
 
     // 讓每個key都要參與把東西移除這件事情
     const keys = document.querySelectorAll(".key");
-    keys.forEach((key) =>
-      key.addEventListener("transitionend", removeTransition)
-    );
+    keys.forEach((key) => key.addEventListener("click", playSoundClick));
+    keys.forEach((key) => {
+      key.addEventListener("transitionend", removeTransition);
+    });
+    keys.forEach((key) => {
+      key.addEventListener("click", print);
+    });
 
     // 把按下鍵盤跟聲音這件事綁在一起
     window.addEventListener("keydown", playSound);

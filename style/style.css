@@ -47,6 +47,9 @@ body {
   margin: 0%;
   font-size: 15px;
 }
+.keys .key:hover {
+  cursor: pointer;
+}
 .keys .playing {
   box-shadow: 0 0 10px 3px rgb(231, 213, 79);
   transform: scale(1.1);
